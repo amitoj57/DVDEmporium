@@ -1,0 +1,32 @@
+﻿@model DVDEmporium.Models.Movie
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="text-center heading-font">Movie Details</h1>
+<div class="row">
+    <div class="col-4">
+        <div class="card h-100 border-primary">
+            <img src="~/covers/@Model.MovieID@Model.Extension" alt="" style="width:100%">
+        </div>
+    </div>
+    <div class="col-8">
+        <h1 class="heading-font">@Model.Title</h1>
+        <h2 class="font2">Tag Line: @Model.TagLine</h2>
+        <h2 class="font2">Genre: @Model.MovieGenre.GenreName</h2>
+        <h2 class="font2">Director: @Model.MovieDirector.DirectorName</h2>
+        <h2 class="font2">Studio: @Model.MovieStudio.StudioName</h2>
+        <h2 class="font2">Genre: @Model.MovieGenre.GenreName</h2>
+        <h2 class="font2">Price: $ @Model.Price</h2>
+        <h2 class="font2">Release Year: @Model.Year</h2>
+        <h2 class="font2">Plot</h2>
+        <p class="font1">@Model.Plot</p>
+    </div>
+</div>
+
+<hr />
+<div>
+    <a asp-action="Edit" class="btn btn-success" asp-route-id="@Model.MovieID">Edit</a> |
+    <a asp-action="Index">View All Movies</a>
+</div>

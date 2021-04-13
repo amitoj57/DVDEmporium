@@ -1,0 +1,31 @@
+﻿@model IEnumerable<DVDEmporium.Models.Director>
+
+@{
+    ViewData["Title"] = "All Directors";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4 heading-font">All Movie Directors</h1>
+</div>
+<hr />
+<div class="row" style="margin-bottom:50px;">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3">
+            <div class="card w-100">
+                <center>
+                    <img src="~/images/director.jpg" alt="" style="width:100%">
+                </center>
+                <div class="card-body">
+                    <h5 class="card-text">
+                        @item.DirectorName
+                    </h5>
+                    <a class="btn btn-success btn-block" asp-action="ViewMoviesByDirector" asp-route-id="@item.DirectorID">Display All Movies</a>
+                </div>
+
+            </div>
+        </div>
+    }
+</div>
+

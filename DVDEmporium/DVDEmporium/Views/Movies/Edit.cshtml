@@ -1,0 +1,69 @@
+﻿@model DVDEmporium.Models.Movie
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1  class="text-center heading-font">Edit Movie Details</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MovieID" />
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TagLine" class="control-label"></label>
+                <input asp-for="TagLine" class="form-control" />
+                <span asp-validation-for="TagLine" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Plot" class="control-label"></label>
+                <textarea asp-for="Plot" class="form-control"></textarea>
+                <span asp-validation-for="Plot" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Year" class="control-label"></label>
+                <input asp-for="Year" class="form-control" />
+                <span asp-validation-for="Year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+                <input type="hidden" asp-for="Extension" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="DirectoryID" class="control-label"></label>
+                <select asp-for="DirectoryID" class="form-control" asp-items="ViewBag.DirectoryID"></select>
+                <span asp-validation-for="DirectoryID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GenreID" class="control-label"></label>
+                <select asp-for="GenreID" class="form-control" asp-items="ViewBag.GenreID"></select>
+                <span asp-validation-for="GenreID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StudioID" class="control-label"></label>
+                <select asp-for="StudioID" class="form-control" asp-items="ViewBag.StudioID"></select>
+                <span asp-validation-for="StudioID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save Details" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">View All Movies</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,35 @@
+﻿@model IEnumerable<DVDEmporium.Models.Movie>
+
+@{
+    ViewData["Title"] = "All Movies";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4 heading-font">All Movies</h1>
+</div>
+<hr />
+<div class="row">
+    @foreach (var item in Model)
+    {
+
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 border-primary">
+                <img src="~/covers/@item.MovieID@item.Extension" alt="" style="width:100%">
+                <div class="card-body">
+                    <h4 class="card-title font1">
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </h4>
+                    <h5 class="font2">@Html.DisplayFor(modelItem => item.TagLine)</h5>
+                    <h5 class="font2">Price: $ @Html.DisplayFor(modelItem => item.Price)</h5>
+                </div>
+                <div class="card-footer">
+                    <p>
+                        <a class="btn btn-success" asp-action="ViewMovieDetails" asp-route-id="@item.MovieID">View Details</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>

@@ -1,0 +1,35 @@
+﻿@model IEnumerable<DVDEmporium.Models.Studio>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1  class="text-center heading-font">View Studios</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Add New Studio</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StudioName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudioName)
+            </td>
+            <td>
+                <a asp-action="Edit" class="btn btn-secondary" asp-route-id="@item.StudioID">Edit</a> |
+
+                <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.StudioID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
